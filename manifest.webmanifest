@@ -1,6 +1,6 @@
 {
-  "name": "Veresiye Defteri",
-  "short_name": "Veresiye",
+  "name": "Kahve Durağı",
+  "short_name": "Kahve Durağı",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

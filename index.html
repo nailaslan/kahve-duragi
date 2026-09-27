@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Veresiye Defteri</title>
+<title>Kahve Durağı</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Veresiye">
+<meta name="apple-mobile-web-app-title" content="Kahve Durağı">
 <meta name="theme-color" content="#F2F3EF" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0E1311" media="(prefers-color-scheme: dark)">
 <link rel="apple-touch-icon" href="icon-180.png">
@@ -167,7 +167,7 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--accent); ou
 <body>
 <div class="wrap">
   <header class="top">
-    <div class="brand">Veresiye<small id="today"></small></div>
+    <div class="brand">Kahve Durağı<small id="today"></small></div>
     <button class="icon-btn" id="btn-settings" aria-label="Menü ve ayarlar">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>
     </button>
@@ -563,11 +563,11 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--accent); ou
       if (focusNew === true) addNew();
 
       root.querySelector('#b-export').onclick = async () => {
-        const name = `veresiye-yedek-${dayKey(Date.now())}.json`;
+        const name = `kahve-duragi-yedek-${dayKey(Date.now())}.json`;
         const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
         const file = new File([blob], name, { type: 'application/json' });
         try {
-          if (navigator.canShare && navigator.canShare({ files: [file] })) { await navigator.share({ files: [file], title: 'Veresiye yedeği' }); return; }
+          if (navigator.canShare && navigator.canShare({ files: [file] })) { await navigator.share({ files: [file], title: 'Kahve Durağı yedeği' }); return; }
         } catch (e) { if (e && e.name === 'AbortError') return; }
         const a = document.createElement('a');
         a.href = URL.createObjectURL(blob); a.download = name;
@@ -584,7 +584,7 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--accent); ou
           const prev = state;
           state = s; save(); closeSheet();
           toast(`${s.entries.length} kayıt geri yüklendi`, () => { state = prev; save(); render(); });
-        } catch (e) { toast('Bu dosya bir Veresiye yedeği değil'); }
+        } catch (e) { toast('Bu dosya bir Kahve Durağı yedeği değil'); }
       };
       armDelete(root.querySelector('#b-wipe'), () => {
         const prev = state.entries;
